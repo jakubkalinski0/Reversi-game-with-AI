@@ -38,7 +38,7 @@ class Game:
             return
 
         while True:
-            row, col = self.state.current_player.make_move()
+            row, col = self.state.current_player.make_move(self.board)
             if (row, col) in self.state.legal_moves:
                 break
             self.display.invalid_move(self.state.legal_moves)

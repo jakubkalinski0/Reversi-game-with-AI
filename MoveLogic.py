@@ -4,10 +4,10 @@ from Board import Board
 
 class MoveLogic:
     DIRECTIONS = [
-        (-1, 0), (1, 0),  # Vertical
-        (0, -1), (0, 1),  # Horizontal
-        (-1, -1), (-1, 1),  # Diagonal Up
-        (1, -1), (1, 1)    # Diagonal Down
+        (-1, 0), (1, 0),        # Vertical
+        (0, -1), (0, 1),        # Horizontal
+        (-1, -1), (-1, 1),      # Diagonal Up
+        (1, -1), (1, 1)         # Diagonal Down
     ]
 
     @staticmethod
