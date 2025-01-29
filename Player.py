@@ -9,7 +9,7 @@ from typing import Tuple
 
 from Board import Board
 from MCTSEngine import MCTSEngine
-from MiniMax import MiniMaxEngine
+from MiniMaxEngine import MiniMaxEngine
 
 
 class Player:
