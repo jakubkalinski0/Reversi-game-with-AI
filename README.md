@@ -1,1 +1,1 @@
-# Reversi-game-Othello-with-the-possibility-of-playing-against-the-machine
+# Reversi-game-Othello-with-AI
