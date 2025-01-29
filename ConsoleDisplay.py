@@ -52,6 +52,14 @@ class ConsoleDisplay:
         return response == "yes"
 
     @staticmethod
+    def ask_ai_engine() -> str:
+        while True:
+            engine = input("Choose AI engine (1 for MiniMax, 2 for Monte Carlo): ").strip()
+            if engine in ['1', '2']:
+                return engine
+            print("Invalid choice. Please enter 1 for MiniMax or 2 for Monte Carlo.")
+
+    @staticmethod
     def ask_player_name(default_name: str, color: str, is_ai: bool) -> str:
         """
         Asks the user to enter the player's name or assigns a default name for AI.

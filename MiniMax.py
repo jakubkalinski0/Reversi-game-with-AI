@@ -1,12 +1,13 @@
 from typing import List, Tuple, Dict, Optional
 import copy
 
+from AIEngine import AIEngine
 from Board import Board
 from GameLogic import GameLogic
 from MoveLogic import MoveLogic
 
 
-class MiniMax:
+class MiniMaxEngine(AIEngine):
     def __init__(self, max_depth: int = 4):
         self.max_depth = max_depth
         self.weights = [
@@ -60,6 +61,10 @@ class MiniMax:
             * Approach cells preceding corners cautiously
             * Build a stable position from corners and edges
         """
+
+    def get_move(self, board: Board, player_color: str) -> Optional[Tuple[int, int]]:
+        _, best_move = self.minimax(board, self.max_depth, float('-inf'), float('inf'), True, player_color)
+        return best_move
 
     # Heuristic
     def evaluate_board(self, board: Board, player_color: str) -> int:
@@ -159,7 +164,3 @@ class MiniMax:
                     break
 
             return min_eval, best_move
-
-    def get_best_move(self, board: Board, player_color: str) -> Optional[Tuple[int, int]]:
-        _, best_move = self.minimax(board, self.max_depth, float('-inf'), float('inf'), True, player_color)
-        return best_move

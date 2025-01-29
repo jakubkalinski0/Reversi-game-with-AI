@@ -8,7 +8,8 @@ It provides methods for making moves and switching between players.
 from typing import Tuple
 
 from Board import Board
-from MiniMax import MiniMax
+from MCTSEngine import MCTSEngine
+from MiniMax import MiniMaxEngine
 
 
 class Player:
@@ -37,7 +38,13 @@ class Player:
         self.color = color
         self.name = name
         self.is_ai = is_ai
-        self.minimax = MiniMax(max_depth=4) if is_ai else None
+        if is_ai:
+            from ConsoleDisplay import ConsoleDisplay
+            engine_choice = ConsoleDisplay.ask_ai_engine()
+            if engine_choice == '1':
+                self.ai_engine = MiniMaxEngine(max_depth=4)
+            else:
+                self.ai_engine = MCTSEngine(simulation_time=200)
 
     def make_move(self, board: Board) -> Tuple[int, int]:
         """
@@ -55,19 +62,20 @@ class Player:
         Raises:
             ValueError: If the input cannot be parsed into two integers.
         """
-        while True:
-            if self.is_ai:
-                move = self.minimax.get_best_move(board, self.color)
-                if move is None:
-                    return (-1,-1)
-                return move
-            else:
+        if self.is_ai:
+            move = self.ai_engine.get_move(board, self.color)
+            if move is None:
+                return (-1, -1)
+            return move
+        else:
+            while True:
                 try:
                     move = input(f"{self.name} ({self.color}), enter your move as row,col: ")
                     row, col = map(int, move.split(","))
                     return row, col
                 except ValueError:
                     print("Invalid input. Please enter your move in the format row,col (e.g., 3,4).")
+
 
     def switch_player(self, players: Tuple['Player', 'Player']) -> 'Player':
         """
