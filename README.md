@@ -1,1 +1,1 @@
-# Reversi-game-Othello-with-AI
+# Reversi-game-with-AI
