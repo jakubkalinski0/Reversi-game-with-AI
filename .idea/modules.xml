@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Reversi-game-with-the-possibility-of-playing-against-the-machine.iml" filepath="$PROJECT_DIR$/.idea/Reversi-game-with-the-possibility-of-playing-against-the-machine.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Reversi-game-with-AI.iml" filepath="$PROJECT_DIR$/.idea/Reversi-game-with-AI.iml" />
     </modules>
   </component>
 </project>
